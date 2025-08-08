@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuckyVerse - Free Social Casino Gaming Platform</title>
+    <title>LuckyVerse - Premium Social Casino Platform</title>
     <style>
         * {
             margin: 0;
@@ -11,172 +11,276 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #00e979;
+            --primary-hover: #00c563;
+            --primary-dark: #00a050;
+            --secondary: #2f4553;
+            --background: #0f212e;
+            --surface: #1a2c38;
+            --surface-light: #213743;
+            --text-primary: #ffffff;
+            --text-secondary: #b1bad3;
+            --text-muted: #7c8798;
+            --border: #2f4553;
+            --success: #00e979;
+            --danger: #ed4163;
+            --warning: #f39c12;
+            --card-bg: #213743;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
         }
 
         .header {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 1rem 2rem;
-            border-bottom: 2px solid #00e701;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        .nav {
-            max-width: 1200px;
+        .header-content {
+            max-width: 1440px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 24px;
+            height: 72px;
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #00e701;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
         }
 
-        .balance {
-            background: rgba(0, 231, 1, 0.1);
-            border: 1px solid #00e701;
-            padding: 0.5rem 1.5rem;
-            border-radius: 10px;
-            font-size: 1.2rem;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            color: var(--background);
         }
 
-        .main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
         }
 
-        .hero {
-            background: linear-gradient(135deg, #00e701 0%, #00b301 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 3rem;
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            margin-left: 40px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            color: #000;
-            margin-bottom: 1rem;
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+            cursor: pointer;
+            background: transparent;
+            border: none;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: rgba(0, 0, 0, 0.8);
+        .nav-link:hover {
+            background: var(--surface-light);
+            color: var(--text-primary);
         }
 
-        .games-section {
-            margin-bottom: 3rem;
+        .nav-link.active {
+            background: var(--surface-light);
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .wallet-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 8px 16px;
+            background: var(--surface-light);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .balance-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .balance-amount {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--background);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 2px solid var(--border);
+        }
+
+        .main-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #00e979 0%, #00a050 100%);
+            border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--background);
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(15, 33, 46, 0.8);
+            margin-bottom: 32px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
         }
 
         .game-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s;
+            border: 1px solid transparent;
         }
 
         .game-card:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 231, 1, 0.1);
-            border-color: #00e701;
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 233, 121, 0.15);
         }
 
-        .game-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .game-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .game-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-new {
+            background: var(--primary);
+            color: var(--background);
+        }
+
+        .badge-hot {
+            background: var(--danger);
+            color: white;
+        }
+
+        .game-info {
+            padding: 16px;
         }
 
         .game-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
-        .game-description {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .play-btn {
-            background: linear-gradient(135deg, #00e701 0%, #00b301 100%);
-            color: #000;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-
-        .play-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0, 231, 1, 0.4);
-        }
-
-        .leaderboard {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .leaderboard-list {
-            list-style: none;
-        }
-
-        .leaderboard-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .player-rank {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #00e701;
-            width: 50px;
-        }
-
-        .player-name {
-            flex: 1;
-            font-size: 1.1rem;
-        }
-
-        .player-score {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffd700;
+        .game-provider {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
         }
 
         .game-modal {
@@ -187,174 +291,267 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+            z-index: 2000;
         }
 
         .modal-content {
-            background: #1a1a2e;
-            padding: 2rem;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
         }
 
         .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2rem;
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
-            color: #fff;
+            font-weight: 600;
         }
 
-        #gameArea {
-            margin: 2rem 0;
-            min-height: 300px;
+        .game-area {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 40px;
+            min-height: 500px;
+            text-align: center;
+        }
+
+        .game-display {
+            font-size: 72px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 40px 0;
+        }
+
+        .game-controls {
             display: flex;
-            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .game-input {
+            padding: 12px;
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 200px;
+        }
+
+        .game-btn {
+            padding: 16px 48px;
+            background: var(--primary);
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .game-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .game-message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .win-message {
+            color: var(--success);
+        }
+
+        .lose-message {
+            color: var(--danger);
+        }
+
+        .mines-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 80px);
+            gap: 10px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+
+        .mine-cell {
+            width: 80px;
+            height: 80px;
+            background: var(--surface-light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        .dice-result {
-            font-size: 5rem;
-            margin: 2rem 0;
+        .mine-cell:hover {
+            background: var(--surface);
         }
 
-        .bet-controls {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1rem 0;
+        .mine-cell.revealed {
+            cursor: default;
         }
 
-        .bet-input {
-            padding: 0.75rem;
-            border-radius: 10px;
-            border: 1px solid #00e701;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-size: 1rem;
-            width: 150px;
+        .mine-cell.safe {
+            background: var(--primary);
+            color: var(--background);
         }
 
-        .result-message {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 10px;
-        }
-
-        .win {
-            background: rgba(0, 231, 1, 0.2);
-            color: #00e701;
-        }
-
-        .lose {
-            background: rgba(255, 0, 0, 0.2);
-            color: #ff3366;
+        .mine-cell.bomb {
+            background: var(--danger);
+            color: white;
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
-            <div class="logo">LUCKYVERSE</div>
-            <div class="balance">Balance: <span id="balance">10000</span> Coins</div>
-        </nav>
+        <div class="header-content">
+            <div style="display: flex; align-items: center;">
+                <a href="/" class="logo">
+                    <div class="logo-icon">LV</div>
+                    <span class="logo-text">LUCKYVERSE</span>
+                </a>
+                
+                <nav class="nav-links">
+                    <button class="nav-link active">Casino</button>
+                    <button class="nav-link">Sports</button>
+                    <button class="nav-link">Live Casino</button>
+                    <button class="nav-link">Promotions</button>
+                </nav>
+            </div>
+            
+            <div class="header-actions">
+                <div class="wallet-section">
+                    <div>
+                        <div class="balance-label">Balance</div>
+                        <div class="balance-amount" id="balance">100,000.00</div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary">Sign In</button>
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </div>
     </header>
 
-    <main class="main">
-        <div class="hero">
-            <h1>Welcome to LuckyVerse</h1>
-            <p>Play Social Casino Games - Win Prizes - No Real Money Required!</p>
+    <main class="main-content">
+        <div class="hero-banner">
+            <h1 class="hero-title">Welcome Package up to $25,000</h1>
+            <p class="hero-subtitle">200% deposit bonus + 50 free spins on your first deposit</p>
         </div>
 
-        <section class="games-section">
-            <h2 class="section-title">Popular Games</h2>
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Popular Games</h2>
+            </div>
+            
             <div class="games-grid">
                 <div class="game-card" onclick="openGame('dice')">
-                    <div class="game-icon">🎲</div>
-                    <div class="game-name">Dice Roll</div>
-                    <div class="game-description">Roll high or low to win!</div>
-                    <button class="play-btn">PLAY NOW</button>
-                </div>
-
-                <div class="game-card" onclick="openGame('slots')">
-                    <div class="game-icon">🎰</div>
-                    <div class="game-name">Lucky Slots</div>
-                    <div class="game-description">Match 3 to win big!</div>
-                    <button class="play-btn">PLAY NOW</button>
+                    <div class="game-image">
+                        <span class="game-badge badge-hot">HOT</span>
+                        <div class="game-logo">DICE</div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">Classic Dice</div>
+                        <div class="game-provider">LuckyVerse Originals</div>
+                    </div>
                 </div>
 
                 <div class="game-card" onclick="openGame('crash')">
-                    <div class="game-icon">📈</div>
-                    <div class="game-name">Crash</div>
-                    <div class="game-description">Cash out before it crashes!</div>
-                    <button class="play-btn">PLAY NOW</button>
+                    <div class="game-image">
+                        <span class="game-badge badge-new">NEW</span>
+                        <div class="game-logo">CRASH</div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">Space Crash</div>
+                        <div class="game-provider">LuckyVerse Originals</div>
+                    </div>
                 </div>
 
-                <div class="game-card" onclick="openGame('roulette')">
-                    <div class="game-icon">🎡</div>
-                    <div class="game-name">Roulette</div>
-                    <div class="game-description">Bet on red, black or numbers!</div>
-                    <button class="play-btn">PLAY NOW</button>
+                <div class="game-card" onclick="openGame('mines')">
+                    <div class="game-image">
+                        <div class="game-logo">MINES</div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">Diamond Mines</div>
+                        <div class="game-provider">LuckyVerse Originals</div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="openGame('wheel')">
+                    <div class="game-image">
+                        <div class="game-logo">WHEEL</div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">Fortune Wheel</div>
+                        <div class="game-provider">LuckyVerse Originals</div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="openGame('plinko')">
+                    <div class="game-image">
+                        <div class="game-logo">PLINKO</div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">Mega Plinko</div>
+                        <div class="game-provider">LuckyVerse Originals</div>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="openGame('limbo')">
+                    <div class="game-image">
+                        <span class="game-badge badge-hot">HOT</span>
+                        <div class="game-logo">LIMBO</div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-name">Limbo XY</div>
+                        <div class="game-provider">LuckyVerse Originals</div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <section class="leaderboard">
-            <h2 class="section-title">Top Players Today</h2>
-            <ul class="leaderboard-list">
-                <li class="leaderboard-item">
-                    <span class="player-rank">#1</span>
-                    <span class="player-name">Player_Dragon</span>
-                    <span class="player-score">250,000</span>
-                </li>
-                <li class="leaderboard-item">
-                    <span class="player-rank">#2</span>
-                    <span class="player-name">LuckyAce</span>
-                    <span class="player-score">185,000</span>
-                </li>
-                <li class="leaderboard-item">
-                    <span class="player-rank">#3</span>
-                    <span class="player-name">WinMaster</span>
-                    <span class="player-score">142,000</span>
-                </li>
-                <li class="leaderboard-item">
-                    <span class="player-rank">#4</span>
-                    <span class="player-name">GoldRush</span>
-                    <span class="player-score">98,000</span>
-                </li>
-                <li class="leaderboard-item">
-                    <span class="player-rank">#5</span>
-                    <span class="player-name">You</span>
-                    <span class="player-score" id="yourScore">10,000</span>
-                </li>
-            </ul>
-        </section>
     </main>
 
-    <!-- Game Modal -->
     <div id="gameModal" class="game-modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeGame()">&times;</span>
-            <h2 id="gameTitle">Game</h2>
-            <div id="gameArea"></div>
+            <div class="modal-header">
+                <h2 class="modal-title" id="gameTitle">Game</h2>
+                <button class="close-btn" onclick="closeGame()">CLOSE</button>
+            </div>
+            <div class="game-area" id="gameArea"></div>
         </div>
     </div>
 
     <script>
-        let balance = 10000;
+        let balance = 100000;
         let currentGame = null;
+        let gameState = null;
 
         function updateBalance(amount) {
             balance += amount;
-            document.getElementById('balance').textContent = balance;
-            document.getElementById('yourScore').textContent = balance.toLocaleString();
+            document.getElementById('balance').textContent = balance.toFixed(2);
         }
 
         function openGame(game) {
@@ -363,200 +560,178 @@
             const gameTitle = document.getElementById('gameTitle');
             const gameArea = document.getElementById('gameArea');
             
-            modal.style.display = 'flex';
+            modal.style.display = 'block';
             
-            switch(game) {
-                case 'dice':
-                    gameTitle.textContent = 'Dice Roll';
-                    gameArea.innerHTML = `
-                        <div class="dice-result" id="diceResult">🎲</div>
-                        <div class="bet-controls">
-                            <input type="number" class="bet-input" id="betAmount" placeholder="Bet amount" value="100" min="1" max="${balance}">
-                            <button class="play-btn" onclick="rollDice()">Roll Dice</button>
-                        </div>
-                        <div id="resultMessage"></div>
-                    `;
-                    break;
-                    
-                case 'slots':
-                    gameTitle.textContent = 'Lucky Slots';
-                    gameArea.innerHTML = `
-                        <div style="display: flex; gap: 1rem; font-size: 4rem; margin: 2rem 0;">
-                            <span id="slot1">🍒</span>
-                            <span id="slot2">🍋</span>
-                            <span id="slot3">🍊</span>
-                        </div>
-                        <div class="bet-controls">
-                            <input type="number" class="bet-input" id="betAmount" placeholder="Bet amount" value="100" min="1" max="${balance}">
-                            <button class="play-btn" onclick="spinSlots()">SPIN</button>
-                        </div>
-                        <div id="resultMessage"></div>
-                    `;
-                    break;
-                    
-                case 'crash':
-                    gameTitle.textContent = 'Crash Game';
-                    gameArea.innerHTML = `
-                        <div style="font-size: 3rem; margin: 2rem 0;">
-                            <span id="multiplier">1.00x</span>
-                        </div>
-                        <div class="bet-controls">
-                            <input type="number" class="bet-input" id="betAmount" placeholder="Bet amount" value="100" min="1" max="${balance}">
-                            <button class="play-btn" id="startBtn" onclick="startCrash()">START</button>
-                            <button class="play-btn" id="cashoutBtn" onclick="cashout()" style="display:none;">CASH OUT</button>
-                        </div>
-                        <div id="resultMessage"></div>
-                    `;
-                    break;
-                    
-                case 'roulette':
-                    gameTitle.textContent = 'Roulette';
-                    gameArea.innerHTML = `
-                        <div style="font-size: 3rem; margin: 2rem 0;">
-                            <span id="rouletteResult">🎡</span>
-                        </div>
-                        <div class="bet-controls">
-                            <input type="number" class="bet-input" id="betAmount" placeholder="Bet amount" value="100" min="1" max="${balance}">
-                            <select class="bet-input" id="betType">
-                                <option value="red">Red</option>
-                                <option value="black">Black</option>
-                                <option value="even">Even</option>
-                                <option value="odd">Odd</option>
-                            </select>
-                            <button class="play-btn" onclick="spinRoulette()">SPIN</button>
-                        </div>
-                        <div id="resultMessage"></div>
-                    `;
-                    break;
+            if (game === 'dice') {
+                gameTitle.textContent = 'Classic Dice';
+                gameArea.innerHTML = `
+                    <div class="game-display" id="diceResult">0.00</div>
+                    <div class="game-controls">
+                        <input type="number" class="game-input" id="betAmount" value="100" min="1" placeholder="Bet Amount">
+                        <input type="number" class="game-input" id="target" value="50" min="2" max="98" placeholder="Target">
+                        <button class="game-btn" onclick="rollDice()">ROLL DICE</button>
+                    </div>
+                    <div class="game-message" id="gameMessage"></div>
+                `;
+            } else if (game === 'crash') {
+                gameTitle.textContent = 'Space Crash';
+                gameArea.innerHTML = `
+                    <div class="game-display" id="multiplier">1.00x</div>
+                    <div class="game-controls">
+                        <input type="number" class="game-input" id="betAmount" value="100" min="1" placeholder="Bet Amount">
+                        <button class="game-btn" id="crashBtn" onclick="startCrash()">START GAME</button>
+                    </div>
+                    <div class="game-message" id="gameMessage"></div>
+                `;
+            } else if (game === 'mines') {
+                gameTitle.textContent = 'Diamond Mines';
+                gameArea.innerHTML = `
+                    <div class="mines-grid" id="minesGrid"></div>
+                    <div style="margin: 20px 0;">
+                        <span style="font-size: 24px; color: var(--primary); font-weight: 700;">
+                            Multiplier: <span id="minesMultiplier">1.00x</span>
+                        </span>
+                    </div>
+                    <div class="game-controls">
+                        <input type="number" class="game-input" id="betAmount" value="100" min="1" placeholder="Bet Amount">
+                        <input type="number" class="game-input" id="minesCount" value="5" min="1" max="24" placeholder="Mines">
+                        <button class="game-btn" id="minesBtn" onclick="startMines()">START GAME</button>
+                    </div>
+                    <div class="game-message" id="gameMessage"></div>
+                `;
+                initMinesGrid();
+            } else if (game === 'wheel') {
+                gameTitle.textContent = 'Fortune Wheel';
+                gameArea.innerHTML = `
+                    <div class="game-display" id="wheelResult">SPIN TO WIN</div>
+                    <div class="game-controls">
+                        <input type="number" class="game-input" id="betAmount" value="100" min="1" placeholder="Bet Amount">
+                        <button class="game-btn" onclick="spinWheel()">SPIN WHEEL</button>
+                    </div>
+                    <div class="game-message" id="gameMessage"></div>
+                `;
+            } else if (game === 'plinko') {
+                gameTitle.textContent = 'Mega Plinko';
+                gameArea.innerHTML = `
+                    <div class="game-display" id="plinkoResult">DROP BALL</div>
+                    <div class="game-controls">
+                        <input type="number" class="game-input" id="betAmount" value="100" min="1" placeholder="Bet Amount">
+                        <select class="game-input" id="risk">
+                            <option value="low">Low Risk</option>
+                            <option value="medium">Medium Risk</option>
+                            <option value="high">High Risk</option>
+                        </select>
+                        <button class="game-btn" onclick="dropBall()">DROP BALL</button>
+                    </div>
+                    <div class="game-message" id="gameMessage"></div>
+                `;
+            } else if (game === 'limbo') {
+                gameTitle.textContent = 'Limbo XY';
+                gameArea.innerHTML = `
+                    <div class="game-display" id="limboResult">0.00x</div>
+                    <div class="game-controls">
+                        <input type="number" class="game-input" id="betAmount" value="100" min="1" placeholder="Bet Amount">
+                        <input type="number" class="game-input" id="targetMultiplier" value="2" min="1.01" step="0.01" placeholder="Target">
+                        <button class="game-btn" onclick="playLimbo()">PLAY</button>
+                    </div>
+                    <div class="game-message" id="gameMessage"></div>
+                `;
             }
         }
 
         function closeGame() {
             document.getElementById('gameModal').style.display = 'none';
-            currentGame = null;
+            if (gameState && gameState.interval) {
+                clearInterval(gameState.interval);
+            }
+            gameState = null;
         }
 
         function rollDice() {
-            const bet = parseInt(document.getElementById('betAmount').value);
+            const bet = parseFloat(document.getElementById('betAmount').value) || 100;
+            const target = parseFloat(document.getElementById('target').value) || 50;
+            
             if (bet > balance) {
                 alert('Insufficient balance!');
                 return;
             }
             
             updateBalance(-bet);
-            const roll = Math.floor(Math.random() * 6) + 1;
-            const diceSymbols = ['', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+            const roll = (Math.random() * 100).toFixed(2);
+            document.getElementById('diceResult').textContent = roll;
             
-            document.getElementById('diceResult').textContent = diceSymbols[roll];
-            
-            const won = roll >= 4;
-            const resultDiv = document.getElementById('resultMessage');
+            const won = parseFloat(roll) < target;
+            const multiplier = (99 / target).toFixed(2);
             
             if (won) {
-                const winAmount = bet * 2;
+                const winAmount = bet * multiplier;
                 updateBalance(winAmount);
-                resultDiv.className = 'result-message win';
-                resultDiv.textContent = `You won ${winAmount} coins!`;
+                document.getElementById('gameMessage').innerHTML = '<div class="win-message">WIN! +' + winAmount.toFixed(2) + ' COINS</div>';
             } else {
-                resultDiv.className = 'result-message lose';
-                resultDiv.textContent = `You lost ${bet} coins!`;
+                document.getElementById('gameMessage').innerHTML = '<div class="lose-message">LOSE! -' + bet.toFixed(2) + ' COINS</div>';
             }
         }
 
-        function spinSlots() {
-            const bet = parseInt(document.getElementById('betAmount').value);
-            if (bet > balance) {
-                alert('Insufficient balance!');
-                return;
-            }
-            
-            updateBalance(-bet);
-            const symbols = ['🍒', '🍋', '🍊', '🍇', '💎', '7️⃣'];
-            
-            const slot1 = symbols[Math.floor(Math.random() * symbols.length)];
-            const slot2 = symbols[Math.floor(Math.random() * symbols.length)];
-            const slot3 = symbols[Math.floor(Math.random() * symbols.length)];
-            
-            document.getElementById('slot1').textContent = slot1;
-            document.getElementById('slot2').textContent = slot2;
-            document.getElementById('slot3').textContent = slot3;
-            
-            const resultDiv = document.getElementById('resultMessage');
-            
-            if (slot1 === slot2 && slot2 === slot3) {
-                const winAmount = bet * 10;
-                updateBalance(winAmount);
-                resultDiv.className = 'result-message win';
-                resultDiv.textContent = `JACKPOT! You won ${winAmount} coins!`;
-            } else if (slot1 === slot2 || slot2 === slot3 || slot1 === slot3) {
-                const winAmount = bet * 2;
-                updateBalance(winAmount);
-                resultDiv.className = 'result-message win';
-                resultDiv.textContent = `You won ${winAmount} coins!`;
-            } else {
-                resultDiv.className = 'result-message lose';
-                resultDiv.textContent = `You lost ${bet} coins!`;
-            }
-        }
-
-        let crashGame = null;
         function startCrash() {
-            const bet = parseInt(document.getElementById('betAmount').value);
+            const bet = parseFloat(document.getElementById('betAmount').value) || 100;
             if (bet > balance) {
                 alert('Insufficient balance!');
                 return;
             }
             
             updateBalance(-bet);
-            document.getElementById('startBtn').style.display = 'none';
-            document.getElementById('cashoutBtn').style.display = 'inline-block';
-            document.getElementById('betAmount').disabled = true;
+            document.getElementById('crashBtn').textContent = 'CASH OUT';
+            document.getElementById('crashBtn').onclick = cashOut;
             
             let multiplier = 1.00;
-            const crashPoint = Math.random() * 5 + 1;
+            const crashPoint = 1 + Math.random() * 10;
             
-            crashGame = {
+            gameState = {
                 bet: bet,
                 multiplier: multiplier,
-                interval: setInterval(() => {
-                    multiplier += 0.01;
+                crashed: false,
+                interval: setInterval(function() {
+                    multiplier += 0.02;
                     document.getElementById('multiplier').textContent = multiplier.toFixed(2) + 'x';
                     
                     if (multiplier >= crashPoint) {
-                        clearInterval(crashGame.interval);
+                        gameState.crashed = true;
+                        clearInterval(gameState.interval);
                         document.getElementById('multiplier').textContent = 'CRASHED!';
-                        document.getElementById('resultMessage').className = 'result-message lose';
-                        document.getElementById('resultMessage').textContent = `Crashed at ${crashPoint.toFixed(2)}x! You lost ${bet} coins!`;
-                        resetCrash();
+                        document.getElementById('gameMessage').innerHTML = '<div class="lose-message">CRASHED! -' + bet.toFixed(2) + ' COINS</div>';
+                        document.getElementById('crashBtn').textContent = 'START GAME';
+                        document.getElementById('crashBtn').onclick = startCrash;
                     }
                 }, 100)
             };
         }
 
-        function cashout() {
-            if (crashGame) {
-                clearInterval(crashGame.interval);
-                const winAmount = Math.floor(crashGame.bet * parseFloat(document.getElementById('multiplier').textContent));
+        function cashOut() {
+            if (gameState && !gameState.crashed) {
+                clearInterval(gameState.interval);
+                const winAmount = gameState.bet * gameState.multiplier;
                 updateBalance(winAmount);
-                document.getElementById('resultMessage').className = 'result-message win';
-                document.getElementById('resultMessage').textContent = `You won ${winAmount} coins!`;
-                resetCrash();
+                document.getElementById('gameMessage').innerHTML = '<div class="win-message">CASHED OUT! +' + winAmount.toFixed(2) + ' COINS</div>';
+                document.getElementById('crashBtn').textContent = 'START GAME';
+                document.getElementById('crashBtn').onclick = startCrash;
             }
         }
 
-        function resetCrash() {
-            crashGame = null;
-            document.getElementById('startBtn').style.display = 'inline-block';
-            document.getElementById('cashoutBtn').style.display = 'none';
-            document.getElementById('betAmount').disabled = false;
-            setTimeout(() => {
-                document.getElementById('multiplier').textContent = '1.00x';
-            }, 2000);
+        function initMinesGrid() {
+            const grid = document.getElementById('minesGrid');
+            grid.innerHTML = '';
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'mine-cell';
+                cell.id = 'cell-' + i;
+                cell.onclick = function() { revealCell(i); };
+                grid.appendChild(cell);
+            }
         }
 
-        function spinRoulette() {
-            const bet = parseInt(document.getElementById('betAmount').value);
-            const betType = document.getElementById('betType').value;
+        function startMines() {
+            const bet = parseFloat(document.getElementById('betAmount').value) || 100;
+            const minesCount = parseInt(document.getElementById('minesCount').value) || 5;
             
             if (bet > balance) {
                 alert('Insufficient balance!');
@@ -564,37 +739,154 @@
             }
             
             updateBalance(-bet);
-            const number = Math.floor(Math.random() * 37);
-            const red = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
-            const black = [2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35];
+            initMinesGrid();
             
-            let color = number === 0 ? 'green' : red.includes(number) ? 'red' : 'black';
-            let isEven = number !== 0 && number % 2 === 0;
+            const mines = new Set();
+            while (mines.size < minesCount) {
+                mines.add(Math.floor(Math.random() * 25));
+            }
             
-            document.getElementById('rouletteResult').textContent = number;
-            document.getElementById('rouletteResult').style.color = color === 'red' ? '#ff0000' : color === 'black' ? '#000000' : '#00ff00';
+            gameState = {
+                bet: bet,
+                mines: mines,
+                revealed: new Set(),
+                multiplier: 1,
+                active: true
+            };
             
-            let won = false;
-            if (betType === 'red' && color === 'red') won = true;
-            if (betType === 'black' && color === 'black') won = true;
-            if (betType === 'even' && isEven) won = true;
-            if (betType === 'odd' && !isEven && number !== 0) won = true;
+            document.getElementById('minesBtn').textContent = 'CASH OUT';
+            document.getElementById('minesBtn').onclick = cashOutMines;
+        }
+
+        function revealCell(index) {
+            if (!gameState || !gameState.active || gameState.revealed.has(index)) return;
             
-            const resultDiv = document.getElementById('resultMessage');
-            if (won) {
-                const winAmount = bet * 2;
-                updateBalance(winAmount);
-                resultDiv.className = 'result-message win';
-                resultDiv.textContent = `You won ${winAmount} coins!`;
+            const cell = document.getElementById('cell-' + index);
+            gameState.revealed.add(index);
+            
+            if (gameState.mines.has(index)) {
+                cell.className = 'mine-cell revealed bomb';
+                cell.textContent = 'X';
+                gameState.active = false;
+                document.getElementById('gameMessage').innerHTML = '<div class="lose-message">BOOM! -' + gameState.bet.toFixed(2) + ' COINS</div>';
+                document.getElementById('minesBtn').textContent = 'START GAME';
+                document.getElementById('minesBtn').onclick = startMines;
+                
+                gameState.mines.forEach(function(i) {
+                    const c = document.getElementById('cell-' + i);
+                    c.className = 'mine-cell revealed bomb';
+                    c.textContent = 'X';
+                });
             } else {
-                resultDiv.className = 'result-message lose';
-                resultDiv.textContent = `You lost ${bet} coins!`;
+                cell.className = 'mine-cell revealed safe';
+                cell.textContent = 'O';
+                gameState.multiplier *= 1.2;
+                document.getElementById('minesMultiplier').textContent = gameState.multiplier.toFixed(2) + 'x';
             }
         }
 
-        // Add keyboard shortcut to close modal
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeGame();
+        function cashOutMines() {
+            if (gameState && gameState.active) {
+                const winAmount = gameState.bet * gameState.multiplier;
+                updateBalance(winAmount);
+                document.getElementById('gameMessage').innerHTML = '<div class="win-message">CASHED OUT! +' + winAmount.toFixed(2) + ' COINS</div>';
+                gameState.active = false;
+                document.getElementById('minesBtn').textContent = 'START GAME';
+                document.getElementById('minesBtn').onclick = startMines;
+            }
+        }
+
+        function spinWheel() {
+            const bet = parseFloat(document.getElementById('betAmount').value) || 100;
+            if (bet > balance) {
+                alert('Insufficient balance!');
+                return;
+            }
+            
+            updateBalance(-bet);
+            const multipliers = [0, 0.5, 1, 1.5, 2, 3, 5, 10];
+            const result = multipliers[Math.floor(Math.random() * multipliers.length)];
+            
+            document.getElementById('wheelResult').textContent = result + 'x';
+            
+            if (result > 0) {
+                const winAmount = bet * result;
+                updateBalance(winAmount);
+                document.getElementById('gameMessage').innerHTML = '<div class="win-message">WIN! +' + winAmount.toFixed(2) + ' COINS</div>';
+            } else {
+                document.getElementById('gameMessage').innerHTML = '<div class="lose-message">LOSE! -' + bet.toFixed(2) + ' COINS</div>';
+            }
+        }
+
+        function dropBall() {
+            const bet = parseFloat(document.getElementById('betAmount').value) || 100;
+            const risk = document.getElementById('risk').value;
+            
+            if (bet > balance) {
+                alert('Insufficient balance!');
+                return;
+            }
+            
+            updateBalance(-bet);
+            
+            const multipliers = {
+                low: [0.5, 0.8, 1, 1.2, 1.5, 1.2, 1, 0.8, 0.5],
+                medium: [0.2, 0.5, 1, 2, 3, 2, 1, 0.5, 0.2],
+                high: [0, 0.2, 0.5, 3, 10, 3, 0.5, 0.2, 0]
+            };
+            
+            const slot = Math.floor(Math.random() * 9);
+            const mult = multipliers[risk][slot];
+            
+            document.getElementById('plinkoResult').textContent = mult + 'x';
+            
+            if (mult > 0) {
+                const winAmount = bet * mult;
+                updateBalance(winAmount);
+                document.getElementById('gameMessage').innerHTML = '<div class="win-message">WIN! +' + winAmount.toFixed(2) + ' COINS</div>';
+            } else {
+                document.getElementById('gameMessage').innerHTML = '<div class="lose-message">LOSE! -' + bet.toFixed(2) + ' COINS</div>';
+            }
+        }
+
+        function playLimbo() {
+            const bet = parseFloat(document.getElementById('betAmount').value) || 100;
+            const target = parseFloat(document.getElementById('targetMultiplier').value) || 2;
+            
+            if (bet > balance) {
+                alert('Insufficient balance!');
+                return;
+            }
+            
+            updateBalance(-bet);
+            
+            const result = (Math.random() * 100).toFixed(2);
+            document.getElementById('limboResult').textContent = result + 'x';
+            
+            if (parseFloat(result) >= target) {
+                const winAmount = bet * target;
+                updateBalance(winAmount);
+                document.getElementById('gameMessage').innerHTML = '<div class="win-message">WIN! +' + winAmount.toFixed(2) + ' COINS</div>';
+            } else {
+                document.getElementById('gameMessage').innerHTML = '<div class="lose-message">LOSE! -' + bet.toFixed(2) + ' COINS</div>';
+            }
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeGame();
+            }
+        });
+
+        // Handle nav link clicks
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(function(l) {
+                    l.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
         });
     </script>
 </body>
